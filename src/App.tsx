@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import * as bitcoin from 'bitcoinjs-lib';
 import { Loader2, AlertCircle, Bitcoin } from 'lucide-react';
 import TransactionOverview from './components/TransactionOverview';
@@ -7,7 +7,7 @@ import OutputsList from './components/OutputsList';
 import FeeAnalysis from './components/FeeAnalysis';
 import ScriptDecoder from './components/ScriptDecoder';
 import TransactionVisualizer from './components/TransactionVisualizer';
-import { TransactionInfo, InputInfo, OutputInfo, FeeInfo } from './types/transaction';
+import type { TransactionInfo, InputInfo, OutputInfo, FeeInfo } from './types/transaction';
 import { getAddressType } from './utils/bitcoin';
 import { fetchAllInputValues, fetchRecommendedFees } from './services/api';
 
@@ -56,12 +56,12 @@ function App() {
       setTransactionInfo(txInfo);
 
       // Parse inputs
-      const parsedInputs: InputInfo[] = tx.ins.map((input, index) => ({
+      const parsedInputs: InputInfo[] = tx.ins.map((input) => ({
         txid: Buffer.from(input.hash).reverse().toString('hex'),
         vout: input.index,
-        scriptSig: input.script.toString('hex'),
+        scriptSig: Buffer.from(input.script).toString('hex'),
         sequence: input.sequence,
-        witness: input.witness.map((w: Buffer) => w.toString('hex')),
+        witness: input.witness.map((w) => Buffer.from(w).toString('hex')),
       }));
       setInputs(parsedInputs);
 
@@ -81,10 +81,10 @@ function App() {
 
         return {
           index,
-          value: output.value,
-          scriptPubKey: output.script.toString('hex'),
+          value: Number(output.value),
+          scriptPubKey: Buffer.from(output.script).toString('hex'),
           address,
-          type: getAddressType(output.script),
+          type: getAddressType(Buffer.from(output.script)),
         };
       });
       setOutputs(parsedOutputs);
@@ -101,7 +101,7 @@ function App() {
       setInputs(updatedInputs);
 
       // Calculate fee info
-      const totalInput = inputValues.reduce((sum, val) => sum + (val || 0), 0);
+      const totalInput = inputValues.reduce((sum: number, val) => sum + (val || 0), 0);
       const totalOutput = parsedOutputs.reduce((sum, out) => sum + out.value, 0);
       const fee = totalInput - totalOutput;
       const feeRate = fee / txInfo.vsize;
@@ -130,7 +130,7 @@ function App() {
 
       // Set first output script for decoder
       if (parsedOutputs.length > 0) {
-        setSelectedScript(tx.outs[0].script);
+        setSelectedScript(Buffer.from(tx.outs[0].script));
         setScriptTitle('Script Decoder - Output #0');
       }
 

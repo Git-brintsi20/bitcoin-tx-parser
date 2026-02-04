@@ -1,15 +1,14 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import ReactFlow, {
-  Node,
-  Edge,
   Controls,
   Background,
   useNodesState,
   useEdgesState,
   MarkerType,
 } from 'reactflow';
+import type { Node, Edge } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { InputInfo, OutputInfo } from '../types/transaction';
+import type { InputInfo, OutputInfo } from '../types/transaction';
 import { satoshisToBTC } from '../utils/bitcoin';
 import { Network } from 'lucide-react';
 

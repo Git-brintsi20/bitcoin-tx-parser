@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransactionInfo } from '../types/transaction';
+import type { TransactionInfo } from '../types/transaction';
 import { Hash, FileCode, Layers, Clock, HardDrive, Scale } from 'lucide-react';
 
 interface TransactionOverviewProps {

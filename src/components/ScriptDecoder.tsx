@@ -76,7 +76,7 @@ const ScriptDecoder: React.FC<ScriptDecoderProps> = ({ script, title }) => {
                       <div className="flex-1">
                         <p className="font-semibold text-gray-800">DATA</p>
                         <pre className="text-xs font-mono text-gray-700 bg-gray-100 p-2 rounded mt-2 overflow-x-auto">
-                          {op.toString('hex')}
+                          {Buffer.from(op).toString('hex')}
                         </pre>
                         <p className="text-sm text-gray-600 mt-1">
                           Push {op.length} bytes onto the stack

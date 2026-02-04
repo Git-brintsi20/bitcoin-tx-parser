@@ -1,7 +1,7 @@
 import React from 'react';
-import { OutputInfo } from '../types/transaction';
+import type { OutputInfo } from '../types/transaction';
 import { ArrowUpCircle, Copy } from 'lucide-react';
-import { formatBTCValue, getAddressType } from '../utils/bitcoin';
+import { formatBTCValue } from '../utils/bitcoin';
 
 interface OutputsListProps {
   outputs: OutputInfo[];

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputInfo } from '../types/transaction';
+import type { InputInfo } from '../types/transaction';
 import { ArrowDownCircle, Copy, ChevronDown, ChevronUp } from 'lucide-react';
 import { formatBTCValue } from '../utils/bitcoin';
 

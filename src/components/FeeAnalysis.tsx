@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeeInfo } from '../types/transaction';
+import type { FeeInfo } from '../types/transaction';
 import { DollarSign, TrendingUp, Activity, AlertCircle } from 'lucide-react';
 import { formatBTCValue } from '../utils/bitcoin';
 
