@@ -1,13 +1,29 @@
 {
   "name": "bitcoin-tx-parser",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "An interactive Bitcoin transaction parser and analyzer - Summer of Bitcoin 2026 project",
+  "author": "Git-brintsi20",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Git-brintsi20/bitcoin-tx-parser.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "transaction",
+    "parser",
+    "blockchain",
+    "cryptocurrency",
+    "summer-of-bitcoin"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "axios": "^1.13.4",
