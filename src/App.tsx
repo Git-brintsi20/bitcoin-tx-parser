@@ -149,70 +149,70 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-amber-50 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="flex items-center justify-center gap-4 mb-4 animate-fade-in">
-            <div className="p-3 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl shadow-lg">
-              <Bitcoin className="w-12 h-12 text-white" />
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="p-4 bg-orange-600 rounded-3xl shadow-2xl">
+              <Bitcoin className="w-16 h-16 text-white" />
             </div>
-            <h1 className="text-5xl font-extrabold bg-gradient-to-r from-orange-600 via-orange-500 to-amber-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl font-black text-white drop-shadow-2xl">
               Bitcoin Transaction Parser
             </h1>
           </div>
-          <p className="text-gray-700 text-xl font-medium">
-            Decode and analyze Bitcoin transactions in real-time
+          <p className="text-white text-2xl font-bold drop-shadow-lg">
+            🔍 Decode and analyze Bitcoin transactions in real-time
           </p>
         </div>
 
         {/* Input Section */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 mb-8 border border-orange-200/50">
-          <label className="block text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">
-            Raw Transaction Hex
+        <div className="bg-white rounded-3xl shadow-2xl p-10 mb-8 border-4 border-orange-600">
+          <label className="block text-lg font-black text-orange-600 mb-4 uppercase tracking-wider">
+            📥 Raw Transaction Hex
           </label>
           <textarea
-            className="w-full h-36 p-4 border-2 border-gray-300 rounded-xl font-mono text-sm focus:ring-4 focus:ring-orange-400 focus:border-orange-500 transition-all bg-gray-50 hover:bg-white shadow-inner"
+            className="w-full h-40 p-5 border-4 border-orange-300 rounded-2xl font-mono text-base focus:ring-4 focus:ring-orange-500 focus:border-orange-600 transition-all bg-orange-50"
             placeholder="Paste raw Bitcoin transaction hex here..."
             value={rawHex}
             onChange={(e) => setRawHex(e.target.value)}
           />
           
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-6 mt-8">
             <button
               onClick={parseTransaction}
               disabled={loading || !rawHex}
-              className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform"
+              className="flex-1 bg-orange-600 hover:bg-orange-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-black text-xl py-5 px-10 rounded-2xl transition-all flex items-center justify-center gap-4 shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transform"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-6 h-6 animate-spin" />
-                  <span className="text-lg">Decoding...</span>
+                  <Loader2 className="w-8 h-8 animate-spin" />
+                  <span>Decoding...</span>
                 </>
               ) : (
                 <>
-                  <Bitcoin className="w-6 h-6" />
-                  <span className="text-lg">Decode Transaction</span>
+                  <Bitcoin className="w-8 h-8" />
+                  <span>Decode Transaction</span>
                 </>
               )}
             </button>
             
             <button
               onClick={loadSampleTransaction}
-              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105 transform"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-black text-xl py-5 px-10 rounded-2xl transition-all shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transform"
             >
-              <span className="text-lg">Load Sample</span>
+              <span>📝 Load Sample</span>
             </button>
           </div>
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-50 border-2 border-red-300 rounded-xl p-5 mb-8 flex items-start gap-3 shadow-lg animate-shake">
-            <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+          <div className="bg-red-100 border-4 border-red-500 rounded-2xl p-6 mb-8 flex items-start gap-4 shadow-2xl">
+            <AlertCircle className="w-8 h-8 text-red-600 flex-shrink-0 mt-1" />
             <div>
-              <p className="font-bold text-red-900 text-lg">Error</p>
-              <p className="text-red-700">{error}</p>
+              <p className="font-black text-red-900 text-2xl">❌ Error</p>
+              <p className="text-red-800 text-lg font-semibold">{error}</p>
             </div>
           </div>
         )}
@@ -237,13 +237,13 @@ function App() {
         )}
 
         {/* Footer */}
-        <div className="text-center mt-16 text-gray-700">
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-200/50">
-            <p className="text-lg font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent mb-2">
-              Built for Summer of Bitcoin 2026
+        <div className="text-center mt-16">
+          <div className="bg-white rounded-3xl p-8 shadow-2xl border-4 border-orange-600">
+            <p className="text-2xl font-black text-orange-600 mb-3">
+              ☀️ Built for Summer of Bitcoin 2026
             </p>
-            <p className="text-sm">
-              Powered by <span className="font-semibold">bitcoinjs-lib</span> • Data from <span className="font-semibold">Blockstream API</span>
+            <p className="text-lg font-bold text-gray-700">
+              Powered by <span className="text-orange-600">bitcoinjs-lib</span> • Data from <span className="text-blue-600">Blockstream API</span>
             </p>
           </div>
         </div>
