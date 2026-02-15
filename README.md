@@ -527,7 +527,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👨‍💻 Author
 
-**Git-brintsi20**  
+**S_Harshita_B** (@Git-brintsi20)  
 Summer of Bitcoin 2026 Applicant
 
 - GitHub: [@Git-brintsi20](https://github.com/Git-brintsi20)
