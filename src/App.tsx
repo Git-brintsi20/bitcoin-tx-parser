@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as bitcoin from 'bitcoinjs-lib';
+import { Buffer } from 'buffer';
 import { Loader2, AlertCircle, Bitcoin } from 'lucide-react';
 import TransactionOverview from './components/TransactionOverview';
 import InputsList from './components/InputsList';
@@ -143,8 +144,8 @@ function App() {
   };
 
   const loadSampleTransaction = () => {
-    // Sample Bitcoin testnet transaction
-    const sample = '02000000000101a3b2c1d4e5f6071829384a5b6c7d8e9f0011223344556677889900aabbccddee0000000000fdffffff02a0860100000000001976a91489abcdefabcdefabcdefabcdefabcdef89abcdef88ac40420f00000000001600141234567890abcdef1234567890abcdef1234567802473044022012345678901234567890123456789012345678901234567890123456789012340220abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef012102abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef00000000';
+    // Real Bitcoin mainnet transaction (simple P2PKH)
+    const sample = '0100000001c997a5e56e104102fa209c6a852dd90660a20b2d9c352423edce25857fcd3704000000004847304402204e45e16932b8af514961a1d3a1a25fdf3f4f7732e9d624c6c61548ab5fb8cd410220181522ec8eca07de4860a4acdd12909d831cc56cbbac4622082221a8768d1d0901ffffffff0200ca9a3b00000000434104ae1a62fe09c5f51b13905f07f06b99a2f7159b2225f374cd378d71302fa28414e7aab37397f554a7df5f142c21c1b7303b8a0626f1baded5c72a704f7e6cd84cac00286bee0000000043410411db93e1dcdb8a016b49840f8c53bc1eb68a382e97b1482ecad7b148a6909a5cb2e0eaddfb84ccf9744464f82e160bfa9b8b64f9d4c03f999b8643f656b412a3ac00000000';
     setRawHex(sample);
   };
 
